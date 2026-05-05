@@ -4,9 +4,9 @@
 #
 # Install with:   pip install -r requirements.txt
 
-numpy
-opencv-python-headless
-mediapipe
+numpy<2
+opencv-python-headless==4.9.0.80
+mediapipe==0.10.14
 matplotlib
 seaborn
 scikit-learn
