@@ -13,3 +13,4 @@ scikit-learn
 streamlit
 streamlit-webrtc
 av
+tornado
