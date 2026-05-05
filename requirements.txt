@@ -14,3 +14,4 @@ streamlit
 streamlit-webrtc
 av
 tornado
+protobuf<4
