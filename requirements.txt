@@ -10,3 +10,6 @@ mediapipe==0.10.14       # Selfie segmentation, does not need numpy>=2
 matplotlib
 seaborn
 scikit-learn
+streamlit
+streamlit-webrtc
+av
