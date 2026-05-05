@@ -6,6 +6,10 @@ import mediapipe as mp
 import streamlit as st
 from streamlit_webrtc import webrtc_streamer, VideoProcessorBase
 
+# Initialize MediaPipe globally to avoid thread-scope import issues
+mp_selfie_segmentation = mp.solutions.selfie_segmentation
+SelfieSegmentation = mp_selfie_segmentation.SelfieSegmentation
+
 # Page config
 st.set_page_config(page_title="Background Remover Web App", page_icon="🎥", layout="centered")
 
@@ -56,14 +60,8 @@ class BackgroundRemoverProcessor(VideoProcessorBase):
         self.mode = "Solid Color"
         self.color_rgb = (0, 177, 64)
         self.bg_image_array = None
-        import mediapipe as mp
-        try:
-            self.mp_selfie_segmentation = mp.solutions.selfie_segmentation
-        except AttributeError:
-            from mediapipe.python.solutions import selfie_segmentation
-            self.mp_selfie_segmentation = selfie_segmentation
             
-        self.segmentor = self.mp_selfie_segmentation.SelfieSegmentation(model_selection=1)
+        self.segmentor = SelfieSegmentation(model_selection=1)
 
     def recv(self, frame: av.VideoFrame) -> av.VideoFrame:
         img = frame.to_ndarray(format="bgr24")
