@@ -2,6 +2,7 @@ import av
 import cv2
 import os
 import numpy as np
+import mediapipe as mp
 import streamlit as st
 from streamlit_webrtc import webrtc_streamer, VideoProcessorBase
 
@@ -56,7 +57,6 @@ class BackgroundRemoverProcessor(VideoProcessorBase):
         self.color_rgb = (0, 177, 64)
         self.bg_image_array = None
         
-        import mediapipe as mp
         self.mp_selfie_segmentation = mp.solutions.selfie_segmentation
         self.segmentor = self.mp_selfie_segmentation.SelfieSegmentation(model_selection=1)
 
