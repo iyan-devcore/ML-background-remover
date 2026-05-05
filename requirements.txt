@@ -4,9 +4,9 @@
 #
 # Install with:   pip install -r requirements.txt
 
-numpy<2                  # mediapipe 0.10.x is not compatible with NumPy 2.x
-opencv-python==4.9.0.80  # Last opencv-python that does NOT require numpy>=2
-mediapipe==0.10.14       # Selfie segmentation, does not need numpy>=2
+numpy
+opencv-python-headless
+mediapipe
 matplotlib
 seaborn
 scikit-learn
