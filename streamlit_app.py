@@ -57,7 +57,8 @@ class BackgroundRemoverProcessor(VideoProcessorBase):
         self.color_rgb = (0, 177, 64)
         self.bg_image_array = None
         
-        self.mp_selfie_segmentation = mp.solutions.selfie_segmentation
+        import mediapipe.python.solutions.selfie_segmentation as mp_selfie_segmentation
+        self.mp_selfie_segmentation = mp_selfie_segmentation
         self.segmentor = self.mp_selfie_segmentation.SelfieSegmentation(model_selection=1)
 
     def recv(self, frame: av.VideoFrame) -> av.VideoFrame:
